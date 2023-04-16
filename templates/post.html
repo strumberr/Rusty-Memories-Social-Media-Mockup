@@ -1,0 +1,93 @@
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='post.css')}}" />
+
+<head>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3283623,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+
+
+<form action="/post" method="POST" enctype=multipart/form-data>
+    <div class="all_page">
+        <h1>What are you sharing today {{username}}?</h1>
+        <h2>Drag or click on the box below to upload</h2>
+
+        <div style="display: flex; justify-content: space-around; width: 100%;">
+            <div class="upload-container">
+                <input class="input_file" type=file name=file accept="image/png, image/jpg, image/jpeg" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])
+                const el = document.getElementById('blah');
+                el.style.display = 'block';
+                ">
+
+                <img id="blah" alt="your image" width="auto" height="100" style="display: flex; margin-top: -110px; margin-left: 10px;"/>
+            </div>
+
+
+
+            <textarea minlength="10" maxlength="512" name="description" id="description" class="bio" placeholder="Enter Caption Here!" required></textarea>
+        </div>
+
+        <textarea minlength="10" maxlength="512" name="story" id="story" class="bio2" placeholder="Tell us a little bit of the story of your wipe!" required></textarea>
+
+        <div style="display: flex; justify-content: center; width: 100%;">
+            <div ontouchstart="">
+                <div class="sign_out">
+                <input type=submit value=Post! class="upload-btn" onclick="uploadFiles()">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</form>
+
+<script>
+    const el = document.getElementById('blah');
+    el.style.display = 'none';
+</script>
+
+<script>
+    function uploadFiles() {
+        var files = document.getElementById('file_upload').files;
+        if(files.length==0){
+            alert("Please first choose or drop any file(s)...");
+            return;
+        }
+        var filenames="";
+        for(var i=0;i<files.length;i++){
+            filenames+=files[i].name+"\n";
+        }
+    }     
+</script>
+<script>
+    imgInp.onchange = evt => {
+    const [file] = imgInp.files
+    if (file) {
+        blah.src = URL.createObjectURL(file)
+    }
+    }
+
+
+    function processFile(event) {
+    event.preventDefault();
+    document.body.style.backgroundColor = "lightgreen";
+    document.getElementById('fileInput').value = event.dataTransfer.getData('file');
+    }
+
+    function allowDrop(event) {
+    event.preventDefault();
+    // change your color here
+    }
+</script>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

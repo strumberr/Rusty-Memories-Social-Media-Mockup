@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='user_search.css')}}" />
+<head>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3283623,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+
+<header>
+    <div class="header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+
+            <a href="/">
+                <img class="header_img" src="https://rustymemories.s3.eu-west-3.amazonaws.com/files/home_icon.png" alt="FeaturedImage">
+            </a>
+
+            <a href="/profile">
+                <img class="header_img" src="https://rustymemories.s3.eu-west-3.amazonaws.com/files/profile_basic.png" alt="FeaturedImage">
+            </a>
+
+            <a href="/users/search">
+                <img class="header_img" src="https://rustymemories.s3.eu-west-3.amazonaws.com/files/search_icon.png" alt="FeaturedImage">
+            </a>
+        </div>
+    </div>
+</header>
+
+
+<html>
+    <form action="/users/search" method="POST">
+        <div class="all_page">
+            <div style="display: flex; width: 100%; color: #F1C098; font-family: BebasNeue; font-size: 40px; margin-bottom: 20px;">
+                {{username}}! Who do you have in mind?
+            </div>
+
+            <div style="display: flex; justify-content: center; width: 100%; align-items: center;">
+                <input minlength="3" class="search_bar" type="text" name="search" id="search" placeholder="Search for a user">
+                <input class="search_button" type="submit" id="search_button" name="search_button" value="Search">
+            </div>
+        </div>
+    </form>
+
+    <div class="all_page">
+        {% for (username, profile_url, bio) in zip(users, profile_urls, list_bios) %}
+        <a href="/users/{{username}}">
+            <div class="user_block">
+                <div style="display: flex; justify-content: flex-start;">
+                    <div style="width: 100%; height: 100%;">
+                        <img style="border-radius: 5px; width: 80px; height: 100%; object-fit: cover;" src="https://rustymemories.s3.eu-west-3.amazonaws.com/{{profile_url}}" alt="ProfileImage">
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; align-items: center;">
+                            <div class="title_username">{{username}}</div>
+                            <span class="bio">{{bio}}</span>
+                        </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</html>
+
+
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

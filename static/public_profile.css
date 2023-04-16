@@ -1,0 +1,661 @@
+@font-face{
+    font-family: BebasNeue;
+    src: url('/static/fonts/BebasNeue-Regular.ttf');
+    font-weight: normal;
+}
+
+
+html {
+    background-color: #161616;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -50px;
+}
+
+.header {
+    width: 85%;
+    height: 50px;
+    border-bottom: 2px solid #F1C098;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.header_img {
+    transition: 0.2s;
+    width: 40px;
+    height: 40px;
+}
+
+.header_img:hover {
+    transition: 0.2s;
+    scale: 1.8;
+}
+
+.rustymemories {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 40px;
+    color: #F1C098;
+}
+
+.all_page {
+    display: flex;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+    justify-content: space-between;
+}
+
+.top_part {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.left_part {
+    display: flex;
+    align-items: center;
+    width: 500px;
+}
+
+.carouselimg {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover;
+    
+    --notchSize: 20px;
+    border-radius: 20px;
+    border: 5px solid rgb(22, 22, 22);    
+    color: #F1C098;
+
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    
+}
+
+.username {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 20px;
+    color: white;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    color: #F1C098;
+}
+
+.username_name {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 50px;
+    color: white;
+    color: #F1C098;
+    margin-bottom: 20px;
+}
+
+.bio {
+    display: flex;
+    width: 380px;
+    height: auto;
+    color: #F1C098;
+    font-family: BebasNeue;
+    background-color: rgb(22, 22, 22);
+    border: solid rgb(22, 22, 22);
+    flex-wrap: wrap;
+    font-size: 20px;
+    margin-top: -20px;
+    resize: none;
+    outline-color: #F1C098;
+    margin-bottom: 10px;
+}
+
+
+
+
+.bio_css_button {
+    background-color: #df8840; 
+    border: solid #df8840; 
+    border-radius: 5px; 
+    width: 100%; 
+    cursor: pointer; 
+    font-family: BebasNeue; 
+    color: rgb(22, 22, 22);
+}
+
+.fun_fact_css_button {
+    background-color: #df8840; 
+    border: solid #df8840; 
+    border-radius: 5px; 
+    width: 100%; 
+    cursor: pointer; 
+    font-family: BebasNeue; 
+    color: rgb(22, 22, 22);
+}
+
+.fun_fact {
+    display: flex;
+    width: 100%;
+    height: 120px;
+    color: #F1C098;
+    font-family: BebasNeue;
+    background-color:rgba(0, 0, 0, 0);
+    border: solid rgba(0, 0, 0, 0);
+    flex-wrap: wrap;
+    font-size: 20px;
+    margin-top: -20px;
+    resize: none;
+    text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
+
+.settings_icon_profile {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 12px;
+}
+
+
+.right_part {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.right_box {
+    display: flex;
+    padding: 10px;
+    border: 2px solid #F1C098;
+    font-family: BebasNeue;
+    font-size: 50px;
+    color: #F1C098;
+    justify-content: center;
+    width: 100px;
+    flex-wrap: wrap;
+    border-radius: 15px;
+
+}
+
+.right_box_title {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 20px;
+    color: #F1C098;
+    justify-content: center;
+    text-align: center;
+}
+
+.right_box_text {
+    display: flex;
+    padding: 20px;
+    color: #F1C098;
+    font-family: BebasNeue;
+    font-size: 40px;
+}
+
+.left_box {
+    display: flex;
+    padding: 10px;
+    border: 2px solid #F1C098;
+    font-family: BebasNeue;
+    font-size: 50px;
+    color: #F1C098;
+    justify-content: center;
+    width: 50%;
+    flex-wrap: wrap;
+    border-radius: 15px;
+}
+
+
+.left_box_title {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 30px;
+    color: #F1C098;
+    justify-content: center;
+    width: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.left_box_text {
+    display: flex;
+    color: #F1C098;
+    font-family: BebasNeue;
+    font-size: 20px;
+    justify-content: center;
+}
+
+
+.friends_title {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 40px;
+    color: #F1C098;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: flex-start;
+}
+
+.middle_part {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.all_page2 {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+    justify-content: flex-start;
+}
+
+.long_box_friends {
+    display: flex;
+    background-color: #2B2B2B;
+    height: 100px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.friend_box {
+    display: flex;
+    background-color: #414141;
+    height: 80px;
+    width: 18%;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+    color: white;
+}
+
+.friend_box_view_all {
+    display: flex;
+    background-color: #df8840;
+    height: 80px;
+    width: 6%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    font-family: BebasNeue;
+}
+
+.middle_part {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.friend_icon {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    
+    --notchSize: 20px;
+    border-radius: 5px;
+}
+
+.left_friend_pfp {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.friend_username {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 20px;
+    color: #F1C098;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.friend_box2 {
+    transition: 0.5s;
+    display: flex;
+    background-color: #414141;
+    height: 180px;
+    width: 150px;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+.friend_box2:hover {
+    transition: 0.5s;
+    scale: 1.1;
+}
+
+.friend_icon2 {
+    width: 150px; 
+    height: 180px; 
+    object-fit: cover;
+    
+    --notchSize: 20px;
+    border-radius: 5px;
+    flex-wrap: wrap;
+}
+
+.long_box_friends2 {
+    display: flex;
+    background-color: #2B2B2B;
+    height: auto;
+    width: auto;
+    margin-top: 10px;
+    border-radius: 15px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.friend_other_box {
+    text-align: center;
+}
+
+/* center date_posted in the middle of the image  */
+
+.date_posted {
+    position: absolute;
+    color: white;
+    font-family: BebasNeue;
+    font-size: 20px;
+    margin: 10px;
+    margin-top: 150px;
+    text-shadow: black 0px 0px 20px;
+    flex-wrap: wrap;
+}
+
+.friend_box3 {
+    display: flex;
+    background-color: #414141;
+    height: 180px;
+    width: 150px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 10px;
+}
+
+
+
+.sign_out{
+    position:relative;
+    display:inline-block;
+    margin:20px;
+  }
+  
+  .sign_out a{
+    color:white;
+    font-family:BebasNeue;
+    font-weight:bold;
+    font-size:20px;
+    text-align: center;
+    text-decoration:none;
+    background-color:#f5403c;
+    display:block;
+    position:relative;
+    padding:20px 40px;
+    
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-shadow: 0px 1px 0px #000;
+    filter: dropshadow(color=#000, offx=0px, offy=1px);
+    
+    -webkit-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #b00c09;
+    -moz-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #b00c09;
+    box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #b00c09;
+    
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .sign_out a:active{
+    top:10px;
+    background-color:#b00c09;
+    
+    -webkit-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #b00c09;
+    -moz-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #b00c09;
+    box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #b00c09;
+  }
+  
+  .sign_out:after{
+    content:"";
+    height:100%;
+    width:100%;
+    padding:4px;
+    position: absolute;
+    bottom:-15px;
+    left:-4px;
+    z-index:-1;
+    background-color:#5e0200;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+
+.file_button {
+    transition: 0.5s;
+    rotate: 180deg; 
+    display: flex; 
+    height: 75%;
+    border-radius: 4px;
+    border: 1px solid #df8840;
+    background-color: #df8840;
+    font-size: 14px;
+    font-family: BebasNeue;
+    color: white;
+    box-shadow: #000 0px 0px 20px;
+}
+
+.file_button:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+
+.file_field {
+    display: flex; 
+    rotate: 180deg; 
+}
+
+
+
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 10px;
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    height: 50px;
+    width: 200px;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    rotate: 180deg;
+
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0);
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+
+
+
+
+
+
+
+
+
+.file-input__input {
+    width: 80%;
+    height: 80%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    font-family: BebasNeue;
+    margin-right: 10px;
+}
+  
+.file-input__label {
+    transition: 0.5s;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 12px;
+    background-color: #df8840;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+    font-family: BebasNeue;
+    box-shadow: #000 0px 0px 20px;
+}
+
+.file-input__label:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+}
+  
+.file-input__label svg {
+    height: 16px;
+    margin-right: 4px;
+}
+
+
+.like_button {
+    transition-timing-function: ease-out;
+    transition-timing-function: ease-in;
+    transition: 0.2s;
+    background-color: rgb(50, 215, 75);
+    border: 2px solid rgb(50, 215, 75);
+    cursor: pointer;
+    border-radius: 5px;
+    height: 50px;
+    width: 150px;
+    margin-right: 10px;
+    transition-timing-function: ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-family: BebasNeue;
+}
+
+.like_button:hover {
+    transition-timing-function: ease-out;
+    transition-timing-function: ease-in;
+    animation-name: like_button;
+    animation-duration: 0.4s;
+    transition-timing-function: ease-out;
+}
+
+
+
+
+@keyframes like_button {
+    0%   {rotate: 0deg; transition-timing-function: ease-out; transition-timing-function: ease-in;}
+    20%   {rotate: 5deg; transition-timing-function: ease-out; transition-timing-function: ease-in;}
+    40%  {rotate: -10deg; transition-timing-function: ease-out; transition-timing-function: ease-in;}
+    60%  {rotate: 10deg; transition-timing-function: ease-out; transition-timing-function: ease-in;}
+    80% {rotate: -10deg; transition-timing-function: ease-out; transition-timing-function: ease-in;}
+    100% {rotate: 0deg; transition-timing-function: ease-out; transition-timing-function: ease-in;}
+  }
+
+
+
+
+
+
+
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }

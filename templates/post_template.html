@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='post_template.css')}}" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<head>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3283623,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+
+<html>
+    <form action="" method="POST">
+        <div class="all_page">
+
+            <div class="left_part">
+                <div class="friend_box2">
+                    <img id="img" class="friend_icon2" src="https://rustymemories.s3.eu-west-3.amazonaws.com/{{post}}" alt="No posts yet">
+                    <div class="bottom-left">
+                        <button class="like_button" name="like_button" id="like_button" value="like_button">
+                            <span class="material-symbols-outlined" style="color: white;">
+                                thumb_up
+                            </span>
+                        </button>
+                        <button class="dislike_button" name="dislike_button" id="dislike_button" value="dislike_button">
+                            <span class="material-symbols-outlined" style="color: white;">
+                                thumb_down
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="right_part">
+
+                <div class="username">
+                    {{username}}
+                </div>
+
+                <div class="caption">
+                    <div style="color: #ffa256; font-size: 25px; width: 100%; margin-bottom: 10px;">What is happening in this image?</div>
+                    {{all_data[3]}}
+                </div>
+
+                <div class="caption" style="margin-top: 20px;">
+                    <div style="color: #ffa256; font-size: 25px; width: 100%; margin-bottom: 10px;">Wipe Story:</div>
+                    {{all_data[2]}}
+                </div>
+
+                <div class="caption" style="margin-top: 20px;">
+                    <div style="color: #ffa256; font-size: 25px; width: 100%; margin-bottom: 10px;">Posted On:</div>
+                    {{all_data[0]}} UTC
+                </div>
+            </div>
+
+        </div>
+    </form>
+</html>
+
+
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

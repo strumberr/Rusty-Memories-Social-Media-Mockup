@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+@font-face{
+    font-family: BebasNeue;
+    src: url('/static/fonts/BebasNeue-Regular.ttf');
+    font-weight: normal;}
+
+
+
+html {
+    background-color: rgb(22, 22, 22);
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: -50px;
+}
+
+.header {
+    width: 85%;
+    height: 50px;
+    border-bottom: 2px solid #F1C098;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.header_img {
+    width: 40px;
+    height: 40px;
+}
+
+.rustymemories {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 40px;
+    color: #F1C098;
+}
+
+.all_page {
+    display: flex;
+    margin-top: 80px;
+    margin-left: 80px;
+    margin-right: 80px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.search_bar {
+    display: flex;
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid #F1C098;
+    font-family: BebasNeue;
+    font-size: 30px;
+    color: white;
+    background-color: #161616;
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 10px;
+}
+
+.search_button {
+    transition: 0.5s;
+    display: flex;
+    width: 20%;
+    height: 55px;
+    border-radius: 10px;
+    border: 2px solid #F1C098;
+    font-family: BebasNeue;
+    font-size: 30px;
+    color: #F1C098;
+    margin-left: 10px;
+    cursor: crosshair;
+    background-color: rgb(22, 22, 22);
+}
+
+.search_button:hover {
+    transition: 0.5s;
+    background-color: #F1C098;
+    color: #161616;
+}
+
+.user_block {
+    display: flex;
+    background-color: #2B2B2B;
+    width: 300px;
+    height: 80px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.title_username {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 30px;
+    color: #F1C098;
+    margin-left: 10px;
+    width: 100%;
+    
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    width: 200px;
+}
+
+.bio {
+    display: flex;
+    font-family: 'Abel', sans-serif;
+    font-size: 20px;
+    color: #F1C098;
+    margin-left: 10px;
+    overflow: hidden; 
+    width: 90%;
+    line-height: 1em;
+    height: 2em;
+    text-overflow: ellipsis;
+}
+
+/* unvisited link */
+a:link {
+    color: #F1C098;
+    text-decoration: none;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #F1C098;
+    text-decoration: none;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: #F1C098;
+    text-decoration: none;
+  }
+  
+  /* selected link */
+  a:active {
+    color: #F1C098;
+    text-decoration: none;
+  }
+
+

@@ -1,0 +1,156 @@
+@font-face{
+    font-family: BebasNeue;
+    src: url('/static/fonts/BebasNeue-Regular.ttf');
+    font-weight: normal;
+}
+
+html {
+    background-color: rgb(22, 22, 22);
+}
+
+.allpage {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_signup {
+    display: flex;
+    background-color: rgb(22, 22, 22);
+    height: auto;
+    width: 500px;
+    border-radius: 20px;
+    justify-content: center;
+    padding-bottom: 40px;
+
+    margin-top: -20px;
+    --notchSize: 20px;
+    border-radius: 20px;
+    border: 5px solid rgb(22, 22, 22); 
+    outline: 3px solid #f1c098;
+}
+
+.submit_button {
+    border: 1px solid #f1c098; 
+    margin-top: 40px;
+    background-color: #f1c098;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    cursor: pointer;
+    font-family: BebasNeue;
+    font-size: 20px;
+}
+
+h1 {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 40px;
+    color: white;
+    font-family: BebasNeue;
+    justify-content: center;
+    
+}
+
+h3 {
+    display: flex;
+    font-family: BebasNeue;
+    font-size: 20px;
+    color: white;
+    font-family: BebasNeue;
+    justify-content: center;
+
+}
+
+.sign_up_fields {
+    display: flex;
+    font-family: Arial;
+    font-size: 20px;
+    color: white;
+    font-family: BebasNeue;
+    justify-content: center;
+    border: solid 1px #f1c098;
+    background-color: rgb(22, 22, 22);
+    outline: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ebac78;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ebac78;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ebac78;
+  }
+
+
+
+.ipromisebtn {
+    background-color:rgb(255, 0, 0); 
+    height: 30px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px; 
+    font-family: Arial; 
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    font-family: BebasNeue;
+}
+
+.ipromisebtn:hover {
+    background-color: rgb(49, 49, 49);
+}
+
+
+
+.verification-code {
+    max-width: 500px;
+    position: relative;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.verification-code--inputs input[type=text] {
+    transition: 0.2s;
+    border: 1px solid #f1c098;
+    width: 60px;
+    height: 70px;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    box-sizing:border-box;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #f1c098;
+    font-size: 40px;
+    font-family: BebasNeue;
+}
+
+.verification-code--inputs input[type=text]::placeholder {
+    color: #2b2b2b;
+}
+
+.verification-code--inputs input[type=text]:focus {
+    transition: 0.2s;
+    outline: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 70px;
+    font-size: 45px;
+}
+
+
+
+

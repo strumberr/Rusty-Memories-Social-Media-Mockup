@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='email_verify.css')}}" />
+<head>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3283623,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+<html>
+    <div class="allpage">
+
+
+        <div class="container_signup">
+            <div>
+
+                <div>
+                <h1>Verification Code</h1>
+                <h3>Please check your inbox for a verification code</h3>
+                </div>
+
+                <div style="justify-content: center; align-items: center; width: 100%;">
+
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="alertloc" style="display: flex; justify-content: center;">
+                                <div class="alert">
+                                    <div style="display: flex; justify-content: center;">
+                                        <div class="ipromisebtn" onclick="this.parentElement.style.display='none';">{{message}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+
+                <form action="/email_verify" method="POST">
+                    <div>
+                        <div style="display: flex; justify-content: center; margin-bottom: 10px; font-family: BebasNeue; color: white; margin-top: 20px;">
+                        </div>
+                        <div class="verification-code">
+                            <div class="verification-code--inputs">
+                                <input placeholder="0" class="input_code" type="text" maxlength="1" id="1" name="verification_code1" required/>
+                                <input placeholder="0" class="input_code" type="text" maxlength="1" id="2" name="verification_code2" required/>
+                                <input placeholder="0" class="input_code" type="text" maxlength="1" id="3" name="verification_code3" required/>
+                                <input placeholder="0" class="input_code" type="text" maxlength="1" id="4" name="verification_code4" required/>
+                                <input placeholder="0" class="input_code" type="text" maxlength="1" id="5" name="verification_code5" required/>
+                                <input placeholder="0" class="input_code" type="text" maxlength="1" id="6" name="verification_code6" required/>
+                            </div>
+                            <input type="hidden" id="verificationCode" />
+                        </div>
+                    
+                        
+                    </div>
+
+                    <div style="display: flex; justify-content: center; margin-top: 10px;">
+                        <button class="submit_button" type="submit">Verify</button>
+                    </div>  
+                </form>  
+                    <div style="display: flex; justify-content: center;">
+                        <form action="/logout" method="POST">
+                            <button class="submit_button" type="submit">Log Out</button>
+                        </form>
+                    </div>   
+                    
+           
+
+                    <script>
+                        const inputs = document.querySelectorAll('.verification-code--inputs input');
+                        inputs.forEach(input => {
+                            input.addEventListener('keyup', (e) => {
+                                if (e.target.value.length === 1) {
+                                    e.target.nextElementSibling.focus();
+                                }
+                                if (e.key === 'Backspace') {
+                                    e.target.previousElementSibling.focus();
+                                }
+                            })
+                        })
+
+                        const verifyButton = document.querySelector('.submit_button');
+                        verifyButton.disabled = true;
+                        inputs[inputs.length - 1].addEventListener('keyup', (e) => {
+                            if (e.target.value.length === 1) {
+                                verifyButton.disabled = false;
+                            }
+                        })
+                    </script>
+            </div>
+        </div>
+    </div>
+</html>
+
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

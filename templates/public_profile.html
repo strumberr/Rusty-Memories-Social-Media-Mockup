@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='public_profile.css')}}" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<head>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3283623,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+<html>
+
+
+<header>
+    <div class="header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+
+            <a href="/">
+                <img class="header_img" src="https://rustymemories.s3.eu-west-3.amazonaws.com/files/home_icon.png" alt="FeaturedImage">
+            </a>
+
+            <a href="/profile">
+                <img class="header_img" src="https://rustymemories.s3.eu-west-3.amazonaws.com/files/profile_basic.png" alt="FeaturedImage">
+            </a>
+
+            <a href="/users/search">
+                <img class="header_img" src="https://rustymemories.s3.eu-west-3.amazonaws.com/files/search_icon.png" alt="FeaturedImage">
+            </a>
+        </div>
+    </div>
+</header>
+
+<div class="all_page">
+    <div class="top_part">
+        <div class="left_part">
+                <img class="carouselimg" src="https://rustymemories.s3.eu-west-3.amazonaws.com/{{profile_image}}" alt="FeaturedImage">
+
+                <div class="popup" style="display: flex; justify-content: center;">
+                    <div class="popuptext" id="myPopup" style="display: flex; justify-content: space-around; align-items: center; padding: 10px;">
+                
+                    </div>
+                </div>
+                
+                
+
+
+            <div class="username">
+                
+                <div class="username_name" style="flex-wrap: wrap;">
+                    <div style="margin-left: 5px;">{{user}}</div>
+                </div>
+
+
+                    <div style="display: flex; width: 100%;">
+                        <div minlength="10" maxlength="150" name="bio" id="bio" class="bio">{{bio}}</div>
+                    </div>
+
+                    <form action="" method="POST">
+                        <button class="like_button" name="follow" id="follow" value="follow">
+                            <div style="margin-right: 5px; margin-top: 3px;">
+                                <span class="material-symbols-outlined" >
+                                    person_add
+                                </span>
+                            </div>
+                            <div>
+                                follow
+                            </div>
+                        </button>
+                    </form>
+
+
+                    <script type="text/javascript">
+
+                        //pass the frind variable to javascript variable, if friend variable is = true, change the add_friend button to background and border color to red
+
+                        var friend = '{{friend}}'
+
+                        
+                        
+                        if (friend == 'True') {
+                            console.log(friend);
+                            document.getElementById("follow").style.backgroundColor = "red";
+                            document.getElementById("follow").style.borderColor = "red";
+                            document.getElementById("follow").innerHTML = '<div style="margin-right: 5px; margin-top: 3px;"><span class="material-symbols-outlined">person_remove</span></div><div>Unfollow</div>';
+                        }
+
+                        //when user click on add_friend, replace the span value with "person_remove" and turn the button color to red
+        
+                        document.getElementById("follow").addEventListener("click", function(){
+                            document.getElementById("follow").innerHTML = '<div style="margin-right: 5px; margin-top: 3px;"><span class="material-symbols-outlined">person_remove</span></div><div>Unfollow</div>';
+                        });
+
+                        //when user click on add_friend, change the add_friend button to background and border color to red
+                        document.getElementById("follow").addEventListener("click", function(){
+                            document.getElementById("follow").style.backgroundColor = "red";
+                            document.getElementById("follow").style.borderColor = "red";
+                        });
+
+            
+
+                        
+                    </script>
+            </div>
+        </div>
+        <div class="right_part">
+            
+            <div class="left_box">
+                <div class="left_box_title">
+                    Fun fact about me
+                </div>
+                <div class="left_box_text">
+                        <div style="display: flex; justify-content: center;">
+                            <div minlength="10" maxlength="100" id="fun_fact" name="fun_fact" class="fun_fact">{{fun_fact}}</div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="all_page2">
+    <div class="middle_part">
+        <div class="friends_title">
+            Following ({{following_num}})
+        </div>
+        <div class="long_box_friends">
+
+            
+            {% for (following, profile) in zip(following, following_profile_url) %}
+            
+                <div class="friend_box">
+                    <div class="left_friend_pfp">
+                        <a href="/users/{{following}}">
+                            <div style="height: 60px; width: auto;">
+                                <img class="friend_icon" src="https://rustymemories.s3.eu-west-3.amazonaws.com/{{profile}}" alt="FeaturedImage">
+                            </div>
+                        </a>
+                    </div>
+                        <a href="/users/{{following}}">
+                            <div class="friend_username">{{following}}</div>
+                        </a>
+                </div>
+
+
+            {% endfor %}
+
+
+
+
+            <div class="friend_box_view_all">View All</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="all_page2">
+    <div class="middle_part">
+        <div class="friends_title">
+            Posts
+        </div>
+        <div class="long_box_friends2">
+
+
+            {% for (post, time, post_url) in zip(reversed(all_posts), reversed(all_post_times), reversed(all_post_urls)) %}
+
+                <div class="friend_box2">
+                    <a href="/user_posts/{{post_url}}">
+                        <img class="friend_icon2" src="https://rustymemories.s3.eu-west-3.amazonaws.com/{{post}}" alt="No posts yet">
+                    </a>
+                        <div class="date_posted">{{time}} UTC</div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

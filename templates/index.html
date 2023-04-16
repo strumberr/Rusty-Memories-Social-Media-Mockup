@@ -1,0 +1,287 @@
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesindex.css')}}" />
+<link rel="shortcut icon" href="{{ url_for('static', filename='learnpediafaviconp.png') }}">
+<script src="{{url_for('static', filename='indexjs.js')}}"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+<head>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:3283623,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+<div class="topbar">
+    <div class="left-part">
+        <a href="/">
+            <div>
+                <img style="height: 35px; width: auto;" src="{{rm_logo_light}}" alt="FeaturedImage">
+            </div>
+        </a>
+
+        
+
+        <div>
+            <form id="form1" autocomplete="off" style="display: flex; justify-content: center; align-items: center; margin-bottom: -0px;">
+                <input class="search_field" type="text" name="search_field" id="search_field" placeholder="search users">
+            </form>
+
+            <div class="list_wrapper">
+                <ul id="myList" class="myList"></ul>
+
+            
+            </div>
+
+        
+            <div id="users_searched" name="users_searched"></div>
+        </div>
+
+        <script>
+
+
+            //when user presses any character in search_field, send a request to the server to search for users without reloading the page
+
+            var search_field = document.getElementById("search_field");
+
+            search_field.addEventListener("keyup", function(event) {
+                console.log("key pressed");
+                event.preventDefault();    // prevent page from refreshing
+                const formData = new FormData(form);  // grab the data inside the form fields
+                console.log(formData);
+                var search_field_value = formData.get('search_field');
+                fetch('/', {   // assuming the backend is hosted on the same server
+                    method: 'POST',
+                    body: formData,
+                })
+                //after the form is submitted, without reloading the page request the "users" variable from the server and display it in a div below the search bar.
+            
+
+                .then(function(response) {
+                    fetch('/api/users/search/' + search_field_value)
+                        .then((response) => response.json())
+                        .then((data) => {
+                        console.log(data.users)
+
+                        data = data.users
+
+                        let list = document.getElementById("myList");
+
+                        list.length = 0
+
+
+            
+                        list.innerHTML = "";
+
+                        data.forEach((item)=>{
+                        var a = document.createElement("a");
+
+                        let li = document.createElement("li");
+                        li.innerText = item;
+                        a.setAttribute('href', "/users/" + item);
+                        a.appendChild(li);
+                        list.appendChild(a);
+                        })
+
+                    });
+
+                });
+
+                //while the api is being requested, display loading_animation
+
+                var list = document.getElementById("myList");
+
+                list.innerHTML = "";
+
+                var li = document.createElement("li");
+                li.innerText = "Loading...";
+                list.appendChild(li);
+
+                //if the search field is empty, hide the list
+
+                if (search_field_value == "") {
+                    list.style.display = "none";
+                } else {
+                    list.style.display = "block";
+                }
+
+                //if the search field only contains one character, display, "type at least 1 more character to search"
+
+                if (search_field_value.length == 1) {
+                    list.innerHTML = "";
+
+                    var li = document.createElement("li");
+                    li.innerText = "Type at least 1 more character to search";
+                    list.appendChild(li);
+                }
+
+    
+
+            });
+
+            
+
+        </script>
+
+
+        <script>
+            form = document.getElementById('form1');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();    // prevent page from refreshing
+                const formData = new FormData(form);  // grab the data inside the form fields
+                console.log(formData);
+                fetch('/', {   // assuming the backend is hosted on the same server
+                    method: 'POST',
+                    body: formData,
+                }).then(function(response) {
+                    // do something with the response if needed.
+                    // If you want the table to be built only after the backend handles the request and replies, call buildTable() here.
+                });
+            });
+        </script>
+    </div>
+
+
+
+    <div class="right-part">
+        <div>
+            <a href="/post">
+                <i class="material-symbols-outlined" style="font-size: 40px; color: white; margin-right: 20px; cursor: pointer;">
+                    add_circle
+                </i>
+            </a>
+        </div>
+        <a href="{{ url_for('signup') }}">
+            <div>
+                <button class="loginbtn" id="loginbtn" style="background-color: #F1C098; border: 1px solid #F1C098;">
+                    Sign Up!
+                </button>
+            </div>
+        </a>
+    </div>
+</div>
+
+<script>
+    //if signed_in == true, change Sign Up! to Profile
+
+    var signed_in = "{{signed_in}}";
+
+    console.log(signed_in);
+    
+    if (signed_in == 'True') {
+        console.log(signed_in);
+        document.getElementById("loginbtn").style.backgroundColor = "rgb(50, 215, 75)";
+        document.getElementById("loginbtn").style.borderColor = "rgb(50, 215, 75)";
+        document.getElementById("loginbtn").innerHTML = "Profile";
+    }
+</script>
+
+
+<style>
+    body {
+    background: rgb(22, 22, 22);
+    }
+</style>
+
+</head> 
+    <body>
+
+    <div class="slideshow-container">
+
+
+        {% for (post, username) in zip(random_post, random_post_username) %}
+        <a href="/user_posts/{{post}}">
+            <div class="mySlides fade">
+                <div class="numbertext">Randomly Chosen Posts</div>
+                <img id="carouselimg" class="carouselimg" src="https://rustymemories.s3.eu-west-3.amazonaws.com/{{post}}" alt="FeaturedImage">
+                <div class="text">{{username}}</div>
+            </div>
+        </a>
+
+        {% endfor %}
+
+        <script>
+
+        </script>
+
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a id="rightarrow" class="next" onclick="plusSlides(1)">❯</a>
+
+        <script>
+            window.onload = function(){
+            document.getElementById('startbtn').click();
+        }
+
+        </script>
+
+        <script>
+            setInterval(startbutton, 5000);
+
+            function startbutton(){
+            document.getElementById('rightarrow').click();
+        }
+
+        </script>
+
+    
+
+
+
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+    <span id="startbtn" class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+
+    <div class="recentlyposted">
+        <div class="recentlypostedtitle">
+            recently posted
+        </div>
+
+        <div class="all_recent_posts">
+
+            {% for (username, post) in zip(recent_post_username, recent_post) %}
+            <a href="/user_posts/{{post}}">
+                <div class="post">
+                    <img class="recent_post_img" src="https://rustymemories.s3.eu-west-3.amazonaws.com/{{post}}" alt="RecentImage">
+                </div>
+            </a>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+    <div class="recentlyposted">
+        <div class="recentlypostedtitle">
+            Following
+        </div>
+
+        <div>
+            
+        </div>
+    </div>
+
+
+
+
+    </body>
+    </html> 
+</div>
+
+    
+
+
+    
+
+
+</html>
+
